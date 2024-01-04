@@ -1,0 +1,87 @@
+body {
+  background-image: url("/imeges/tile.jpg");
+}
+
+h1 {
+  font-family: "Single Day", cursive;
+  font-size: 4rem;
+  text-align: center;
+}
+
+form {
+  background-image: url("/imeges/formbg.jpg");
+  width: 50vw;
+  margin: auto;
+}
+
+.button {
+  margin-bottom: 1rem;
+}
+
+input {
+  text-align: center;
+}
+
+/* tasks */
+.sticky-note {
+  background-image: url("/imeges/notebg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 20px;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-header {
+  justify-content: flex-end;
+}
+
+.task-content {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  width: 50%;
+  word-wrap: break-word;
+}
+
+.delete-button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  opacity: 0;
+}
+
+.sticky-note:hover .delete-button {
+  opacity: 1;
+}
+
+.task-time {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
+/* Animation */
+/* Keyframe animation for fade-in effect */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    /* Add any other initial styles for the animation */
+  }
+  to {
+    opacity: 1;
+    /* Add any other final styles for the animation */
+  }
+}
+
+.fade-in-animation {
+  animation: fade-in 1s;
+}
