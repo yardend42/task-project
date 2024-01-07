@@ -1,5 +1,5 @@
 body {
-  background-image: url("/imeges/tile.jpg");
+  background-image: url("/imeges/tile.jpg");  
 }
 
 h1 {
@@ -27,13 +27,13 @@ input {
   background-image: url("/imeges/notebg.png");
   background-size: contain;
   background-repeat: no-repeat;
-  margin-left: 20px;
   width: 250px;
   height: 250px;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  
 }
 
 .task-header {
@@ -42,10 +42,23 @@ input {
 
 .task-content {
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 10%;
   width: 50%;
+  height: 60%;
+
   word-wrap: break-word;
+  overflow-y:scroll;
+  scrollbar-width: none;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.task-content::-webkit-scrollbar {
+  display: none;
+}
+
+#myTasks{
+  margin-left:auto ;
+  margin-right: auto;
 }
 
 .delete-button {
@@ -69,6 +82,14 @@ input {
   left: 5px;
 }
 
+
+
+.fade-in-animation {
+  animation: fade-in 2s ;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+
 /* Animation */
 /* Keyframe animation for fade-in effect */
 @keyframes fade-in {
@@ -80,8 +101,4 @@ input {
     opacity: 1;
     /* Add any other final styles for the animation */
   }
-}
-
-.fade-in-animation {
-  animation: fade-in 1s;
 }
