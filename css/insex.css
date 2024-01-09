@@ -1,5 +1,5 @@
 body {
-  background-image: url("/imeges/tile.jpg");  
+  background-image: url("/imeges/tile.jpg");
 }
 
 h1 {
@@ -12,17 +12,20 @@ form {
   background-image: url("/imeges/formbg.jpg");
   width: 50vw;
   margin: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
-
-.button {
-  margin-bottom: 1rem;
-}
-
 input {
   text-align: center;
+  margin-bottom: 12px;
+  height: 30px;
+}
+.button {
+  margin-bottom: 10px;
+  line-height: 1;
 }
 
-/* tasks */
+/* TASKS */
 .sticky-note {
   background-image: url("/imeges/notebg.png");
   background-size: contain;
@@ -33,7 +36,7 @@ input {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  
+ 
 }
 
 .task-header {
@@ -46,19 +49,11 @@ input {
   left: 10%;
   width: 50%;
   height: 60%;
-
   word-wrap: break-word;
-  overflow-y:scroll;
-  scrollbar-width: none;
-}
-/* Hide scrollbar for Chrome, Safari and Opera */
-.task-content::-webkit-scrollbar {
-  display: none;
 }
 
-#myTasks{
-  margin-left:auto ;
-  margin-right: auto;
+#myTasks {
+  margin-left: 55px;
 }
 
 .delete-button {
@@ -83,22 +78,26 @@ input {
 }
 
 
-
+/* do i need to change to transitioning?  */
 .fade-in-animation {
-  animation: fade-in 2s ;
-  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+   animation: fade-in 1s;
+ 
 }
 
-
-/* Animation */
-/* Keyframe animation for fade-in effect */
+/*  animation for fade-in effect */
 @keyframes fade-in {
   from {
     opacity: 0;
-    /* Add any other initial styles for the animation */
   }
   to {
     opacity: 1;
-    /* Add any other final styles for the animation */
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .sticky-note {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
