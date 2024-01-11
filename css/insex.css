@@ -22,10 +22,15 @@ input {
 }
 .button {
   margin-bottom: 10px;
+  height: 31px;
   line-height: 1;
 }
 
 /* TASKS */
+#myTasks {
+  margin-left: 55px;
+}
+
 .sticky-note {
   background-image: url("/imeges/notebg.png");
   background-size: contain;
@@ -34,13 +39,10 @@ input {
   height: 250px;
   position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
- 
 }
 
-.task-header {
-  justify-content: flex-end;
+.fade-in-animation {
+  animation: fade-in 1.5s;
 }
 
 .task-content {
@@ -50,10 +52,6 @@ input {
   width: 50%;
   height: 60%;
   word-wrap: break-word;
-}
-
-#myTasks {
-  margin-left: 55px;
 }
 
 .delete-button {
@@ -75,13 +73,6 @@ input {
   position: absolute;
   bottom: 5px;
   left: 5px;
-}
-
-
-/* do i need to change to transitioning?  */
-.fade-in-animation {
-   animation: fade-in 1s;
- 
 }
 
 /*  animation for fade-in effect */

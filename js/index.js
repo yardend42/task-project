@@ -6,7 +6,6 @@ class TaskManager {
     this.taskTime = taskTime;
   }
   //methods
-  //local storege
   static saveTasks(taskList) {
     localStorage.setItem("oldTasks", JSON.stringify(taskList));
   }
@@ -44,13 +43,15 @@ const displayTasks = (taskList) => {
     const task = taskList[index];
     const taskItem = document.createElement("div");
     taskItem.classList.add("sticky-note", "col-md-2");
-
+    // adding fade-in-animation -only to the last task item-
+    if (index === taskList.length - 1) {
+      taskItem.classList.add("fade-in-animation");
+    }
     taskItem.innerHTML = `
-  <div class="task-header">
-  <button class=" delete-button" aria-hidden="true" 
-  onclick="TaskManager.deleteTask(event, ${index})"><i class="fa fa-window-close" aria-hidden="true"></i>
+  <button class=" delete-button"  
+  onclick="TaskManager.deleteTask(event, ${index})">
+  <i class="fa fa-window-close"></i>
   </button>
-  </div>
   <div class="overflow-auto task-content">
   ${task.taskName}
   <br />
@@ -58,12 +59,8 @@ const displayTasks = (taskList) => {
   <div class="task-time">
   <strong>${TaskManager.formatDate(task.taskDate)}<br />
   ${task.taskTime}</strong></div>`;
-    // adding fade-in-animation -only to the last task item-
-    if (index === taskList.length - 1) {
-      taskItem.classList.add("fade-in-animation");
-    }
-    //append chiled from the left
-    taskDiv.prepend(taskItem);
+
+    taskDiv.appendChild(taskItem);
   }
 };
 
@@ -72,11 +69,11 @@ const setTask = () => {
   const taskValue = document.getElementById("taskName").value;
   const dateValue = document.getElementById("taskDate").value;
   const timeValue = document.getElementById("taskTime").value;
-  
-  //DATE & TIME=LOGIC CHECKS
+
+  //DATE & TIME LOGIC CHECK
   const combinedDateTime = new Date(`${dateValue} ${timeValue}`);
   if (combinedDateTime < new Date().getTime()) {
-    alert("oh nooo! you are too late");
+    alert("Oh Nooo! Its too late.");
     return;
   }
   //creat task
@@ -92,7 +89,7 @@ const setTask = () => {
 //reset button= remove tasks from localstorege and clean my board
 const resetTasks = () => {
   localStorage.removeItem("oldTasks");
-  displayTasks(TaskManager.loadTasks());
+  displayTasks([]);
 };
 
 // Load tasks from local storage on page load
